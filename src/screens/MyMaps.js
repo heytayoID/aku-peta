@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
+import Icon from 'react-native-vector-icons/dist/FontAwesome'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 import {styles} from './styles.js'
@@ -10,17 +11,49 @@ class MyMaps extends Component {
     region: {
       latitude: -6.3164643825140985,
       longitude: 106.6482881270349,
-      latitudeDelta: 0.0004288809190189369,
-      longitudeDelta: 0.0004315003752708435,
+      latitudeDelta: 0.0065288809190189369,
+      longitudeDelta: 0.0065315003752708435,
     },
-    marker: {
-      coordinate: {
-        longitude: 106.64824672043324,
-        latitude: -6.316456218159012
-      },
-      name: "Meteor Inovasi Digital .PT"
-    },
-    displaySearchListView : "flex"
+    markers: [
+        {
+            "id": 0,
+            "name": "mawar",
+            "coordinate": {
+                "longitude": 106.64677049964666,
+                "latitude": -6.31629592931006
+            }
+        }, {
+            "id": 1,
+            "name": "melati",
+            "coordinate": {
+                "longitude": 106.6499650105834,
+                "latitude": -6.314788345274963
+            }
+        },{
+            "id": 2,
+            "name": "kamboja",
+            "coordinate": {
+                "longitude": 106.65026843547821,
+                "latitude": -6.318779567792185
+            }
+        },{
+            "id": 3,
+            "name": "tulip",
+            "coordinate": {
+                "longitude": 106.64684191346169,
+                "latitude": -6.314220834055488
+            }
+        },{
+            "id": 4,
+            "name": "anggrek",
+            "coordinate": {
+                "longitude": 106.64755571633577,
+                "latitude": -6.319311417445766
+            }
+        }
+    ],
+
+
   }
 
   handleMapPress = (data) => {
@@ -72,16 +105,24 @@ class MyMaps extends Component {
           showsUserLocation={true}
           userLocationAnnotationTitle={"My Location"}
           showsMyLocationButton={true}
-          initialRegion={this.state.region}
           region={this.state.region}
-          onLongPress={data => this.handleMapPress(data)}
+          onLongPress={data => console.log(data.nativeEvent)}
           onPoiClick={data => this.handleMapPress(data)}
           onRegionChangeComplete={region => this.handleRegionChange(region)}
         >
-          <Marker
-            title={this.state.marker.name}
-            coordinate={this.state.marker.coordinate}
-          />
+          {
+            this.state.markers.map(marker => (
+                <Marker
+                  title={marker.name}
+                  coordinate={marker.coordinate}
+                  key={marker.id}
+                > 
+                  <View style={{backgroundColor:"#ff5555",width:30,height:30,justifyContent:'center',alignItems:'center'}}>
+                    <Icon name={"bed"} color={"#fff"} size={20}/>
+                  </View>
+                </Marker>
+            ))
+          }
         </MapView>
 
         
@@ -116,7 +157,7 @@ class MyMaps extends Component {
           types: 'food'
         }}
    
-        filterReverseGeocodingByTypes={['locality', 'administrative_area_level_3']} 
+        filterReverseGeocodingByTypes={[]} 
         predefinedPlaces={[]}
    
         debounce={200} 

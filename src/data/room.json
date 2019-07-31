@@ -1,0 +1,42 @@
+[
+	{
+		"id" : 0,
+		"nama" : "mawar",
+		"coordinate" : {
+			"longitude" : 106.64824672043324,
+        	"latitude": -6.316456218159012
+		}		
+	},
+	{
+		"id" : 0,
+		"nama" : "melati",
+		"coordinate" : {
+			"longitude" : 106.64824672043324,
+        	"latitude": -6.316456218159012
+		}		
+	}
+	{
+		"id" : 0,
+		"nama" : "kamboja",
+		"coordinate" : {
+			"longitude" : 106.64824672043324,
+        	"latitude": -6.316456218159012
+		}		
+	}
+	{
+		"id" : 0,
+		"nama" : "tulip",
+		"coordinate" : {
+			"longitude" : 106.64824672043324,
+        	"latitude": -6.316456218159012
+		}		
+	}
+	{
+		"id" : 0,
+		"nama" : "anggrek",
+		"coordinate" : {
+			"longitude" : 106.64824672043324,
+        	"latitude": -6.316456218159012
+		}		
+	}
+]
