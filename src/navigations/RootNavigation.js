@@ -1,6 +1,7 @@
 import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation"
 
 import MyMaps from './../screens/MyMaps'
+import MyCalenders from './../screens/MyCalenders'
 
 const App = createStackNavigator({
 	MyMaps : {
@@ -8,10 +9,16 @@ const App = createStackNavigator({
 		navigationOptions : ({navigation}) => ({
 			header : null
 		})
+	},
+	MyCalenders : {
+		screen : MyCalenders,
+		navigationOptions : ({navigation}) => ({
+			header : null
+		})
 	}
 },
 {
-	initialRouteName : 'MyMaps'
+	initialRouteName : 'MyCalenders'
 })
 
 const RootNavigation = createAppContainer(createSwitchNavigator({
